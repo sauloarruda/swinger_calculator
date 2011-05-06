@@ -4,13 +4,13 @@ require 'cucumber/rake/task'
 
 Cucumber::Rake::Task.new(:features, 'Run all features on the test application') do |t|
   if feature = ENV['ONLY']
-    t.cucumber_opts = "test/features/#{feature}.feature"
+    t.cucumber_opts = "features/#{feature}.feature"
   else
-    t.cucumber_opts = "test/features --format progress"
+    t.cucumber_opts = "features --format progress"
   end
   if ENV['RCOV']
     t.rcov = true
-    t.rcov_opts = "--include test/features"
+    t.rcov_opts = "--include features"
   end
 end
 
